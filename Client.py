@@ -2,6 +2,8 @@
 
 import socket
 
+import os
+
 class Client:
     def __init__(self , host_ip , port):
         self.host = host_ip
