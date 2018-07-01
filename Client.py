@@ -9,11 +9,21 @@ class Client:
 
         self.socket = socket.socket(socket.AF_INET , socket.SOCK_STREAM)
 
+    def receive_file(self):
         self.socket.connect((self.host , self.port))
+        print("Connected to server.")
+        file_name = self.socket.recv(1024)
 
-    def receive_message(self , message):
-        data = self.socket.recv(1024)
-        print(data)
+        with open(os.path.join(os.getcwd() , "Received_Files" , file_name) , 'wb') as file:
+            print("File opened.")
+            print("Receiving Data...")
+            while True:
+                data = self.socket.recv(1024)
+                if not data:
+                    break
+                file.write(data.decode())
+        file.close()
+
 
 
 

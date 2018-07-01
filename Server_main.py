@@ -1,4 +1,9 @@
 import Server
 
-server = Server.Server('192.168.137.1' , 31400)
-server.send_message("Hello world")
+host_ip = input("Enter Host ip : ")
+port = int(input("Enter Port number : "))
+file_path = input("Enter File Path : ")
+
+server = Server.Server(host_ip , port)
+
+server.send_file(file_path)

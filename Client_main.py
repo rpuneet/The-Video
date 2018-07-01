@@ -1,4 +1,8 @@
 import Client
 
-client = Client.Client("192.168.43.1" , 31400)
-print(client.receive_message(1024))
+host = input("Enter Host ip : ")
+port = input("Enter port : ")
+
+
+client = Client.Client(host, port)
+client.receive_file()
